@@ -58,11 +58,11 @@ It supports whatever discord will embed. Images, audio, text files, videos, gifs
 
 All config is stored in `~/.config/ooberbot/config.yaml` and is commented to explain all features.
 
-setting **"settings"** in the config file to `user` will use **settings.yaml** from your text-generation-webui. this is the settings file that gets used when you save your generation settings.
+Setting **"settings_type"** in `config.yaml` to `user` will use **settings.yaml** from your text-generation-webui. this is the settings file that gets used when you save your generation settings.
 otherwise, it uses `default` which pulls from **settings-template.yaml** from your text-generation-webui. this is the default config, and should give your bot generic ai responses.
 
 ### Advanced configuration: 
-if you'd like to add more settings from the webui's config files, feel free to implement more stuff in the `settings = {} field.` Just follow the current format such as: 
+If you'd like to add more settings from the webui's config files, feel free to implement more stuff in the `settings = {} field.` Just follow the current format such as: 
 ```python
 "value1": textgencfg['value1'],
 "value2": textgencfg['value2'],
