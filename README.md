@@ -9,14 +9,14 @@ __A Discord LLM bot that runs using [oobabooga's text-generation-webui](https://
 - Linux, *maybe* MacOS
 - A brain
 ## Installation Instructions:
-**1.** Open a terminal window and type:**
+**1.** Open a terminal window and type:
 
 ```bash 
 git clone https://github.com/notmugi/ooberbot && cd ooberbot
 ```
 Or download the project from github manually and place it at your desired location.
 
- **2.** Next, type:**
+ **2.** Next, type:
 
 ```bash
 ./install.sh
