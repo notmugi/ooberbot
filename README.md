@@ -6,7 +6,7 @@ __A Discord LLM bot that runs using [oobabooga's text-generation-webui](https://
 ### Requirements:
 - Python
 - [oobabooga's text-generation-webui](https://github.com/oobabooga/text-generation-webui)
-- Linux, *maybe* MacOS
+- Linux, or MacOS
 - A brain
 ## Installation Instructions:
 **1.** Open a terminal window and type:
