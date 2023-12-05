@@ -5,15 +5,15 @@ import yaml
 import discord
 import discord.ext
 from discord import app_commands
-from platformdirs import *
 
 # Written by: mugi1
-# INSTRUCTIONS: README.MD
-# or on github idk doesnt really matter, just follow the instructions
+# instructions @ https://www.github.com/notmugi/ooberbot
+# discord: mugi1
 
 ### Change the config dir here. default location is in ~/.config/ooberbot
 ### This handles loading our YAML config file.
-with open (user_config_dir()+'/ooberbot/config.yaml', 'r') as oobercfg:
+
+with open (os.path.expanduser('~/.config')+'/ooberbot/config.yaml', 'r') as oobercfg:
     botCfg = yaml.safe_load(oobercfg)
     
 # specifically this is where we grab all the yaml data for our Discord bot.
@@ -61,20 +61,21 @@ async def on_ready():
     print(f'logged in as {AIBot.user}')
     await AIBot.change_presence(activity = discord.Activity(type=status_type, name="to the voices"))
     await AIBot.tree.sync()
+    
 # Set up our first command. this is the reset history command.
-@AIBot.tree.command(name="lobotomize", description="reset osaka's brain!")
+@AIBot.tree.command(name="lobotomize", description="Reset the bot's brain!")
 async def lobotomize(interaction: discord.Interaction) -> None:
     # check if we are enabling the posting of a video when we reset history. if not, just print text.
     if lobotomyVid:
-        await interaction.response.send_message(file=discord.File(f'{user_config_dir()}/ooberbot/vids/{videoname}'), content="Sata andagi!!!")
+        await interaction.response.send_message(file=discord.File(os.path.expanduser('~/.config')+f'/ooberbot/vids/{videoname}'), content="erm... i forgor")
     else:
-        await interaction.response.send_message("Sata andagi!!!")
+        await interaction.response.send_message("erm... i forgor")
     print(f'history before clear:\n{history}')
     history.clear()
     print(f'history after clear:\n{history}')
 
 # command numero two. this pauses ooberbot.
-@AIBot.tree.command(name="pause", description="Shut that bitch up !!")
+@AIBot.tree.command(name="pause", description="Shut that bot up!")
 async def pause(interaction: discord.Interaction) -> None:
     global isPaused
     isPaused = True
@@ -85,7 +86,7 @@ async def pause(interaction: discord.Interaction) -> None:
 async def pause(interaction: discord.Interaction) -> None:
     global isPaused
     isPaused = False
-    await interaction.response.send_message("SATAA ANDAGIII SATAA ANDAGIII SATAA ANDAGIII SATAA ANDAGIII")
+    await interaction.response.send_message("hiiii :3")
 
 # this code runs whenever a message is sent in any channel it can access, or dmed to the bot.
 @AIBot.event
@@ -102,10 +103,8 @@ async def on_message(message):
     # is the bot paused? if not, we can send messages.
     if not isPaused:
         async with message.channel.typing():
-
-            # append the first part of the user message for the LLM.    
+            # append the first part of the user message for the LLM.
             history.append({"role": "user", "content": message.content})
-
             # every message, grab these settings. (these update on a per-message basis.)
             # tweak your settings in the webUI, get good results, save them, and they will apply to the bot.
             settings = {
@@ -122,7 +121,6 @@ async def on_message(message):
             bot_message = response.json()['choices'][0]['message']['content']
             # throw it into the history list. gives our LLM the necessary context.
             history.append({"role": "assistant", "content": bot_message})
-
             # send response as message
             await message.channel.send(bot_message)
             if msg_logging:
@@ -137,7 +135,5 @@ async def on_message(message):
             
    
 
-# run muddafucka (put your discord token in an environment file, or type it before running the python script)
-# e.g either in your .zshrc, .bashrc, or by running the script like:
-# DISCORD_TOKEN=tokenhere python ~/bot/main.py
+# run (put your discord token in ~/.config/ooberbot/config.yaml)y
 AIBot.run(botCfg['token'])
