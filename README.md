@@ -48,10 +48,6 @@ Simply type `python ooberbot.py` if you are still in the same folder, or `python
 
 Currently, the bot is very barebones and will only reply to whatever message it sees, without any rate limiting or anything of that sort.
 
-If you'd like to include your own video file, image, text file, gif, audio file, or any other file, for when the bot's history is reset, place it in ~/.config/ooberbot/vids and open `config.yaml`.
-Find the line **"video_file_name"** and specify the filename there.
-It supports whatever discord will embed. Images, audio, text files, videos, gifs, etc.  This behavior is disabled entirely through the included `config.yaml` file.
-
 ### Commands:
 - You may pause the bots interactions with `/pause`
 - you may resume them again with `/resume`
@@ -63,6 +59,10 @@ All config is stored in `~/.config/ooberbot/config.yaml` and is commented to exp
 
 Setting **"settings_type"** in `config.yaml` to `user` will use **settings.yaml** from your text-generation-webui. this is the settings file that gets used when you save your generation settings.
 otherwise, it uses `default` which pulls from **settings-template.yaml** from your text-generation-webui. this is the default config, and should give your bot generic ai responses.
+
+If you'd like to include your own video file, image, text file, gif, audio file, or any other file, for when the bot's history is reset, place it in ~/.config/ooberbot/vids and open `config.yaml`.
+Find the line **"video_file_name"** and specify the filename there.
+It supports whatever discord will embed. Images, audio, text files, videos, gifs, etc.  This behavior is disabled entirely through the included `config.yaml` file.
 
 ### Advanced configuration: 
 If you'd like to add more settings from the webui's config files, feel free to implement more stuff in the `settings = {} field.` Just follow the current format such as: 
