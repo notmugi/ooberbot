@@ -16,20 +16,23 @@ git clone https://github.com/notmugi/ooberbot && cd ooberbot
 ```
 Or download the project from github manually and place it at your desired location.
 
- **2.** Next, type:
-
+ **2.** Next, give the install script execution permissions:
+```bash
+chmod +x install.sh
+```
+**3.** Finally, to run the installer, type:
 ```bash
 ./install.sh
 ```
 
 This should copy your ooberbot config to `~/.config/ooberbot`, and then install all the required python dependencies from `install.txt` using pip.
 
-**3.** Assuming you already have a discord bot set up on the [Discord Developer portal](https://discord.com/developers/applications),
+**4.** Assuming you already have a discord bot set up on the [Discord Developer portal](https://discord.com/developers/applications),
 You will need to copy your bot's Discord Token into the "token" field in `~/.config/ooberbot/config.yaml`. 
 
-**4.** Generate an invite link in the dev portal and invite your bot to your desired server. or DM it. up to you.
+**5.** Generate an invite link in the dev portal and invite your bot to your desired server. or DM it. up to you.
 
-**5.** Find **textgen_default_cfg** and **textgen_user_cfg** in your `config.yaml` file. Set these to the corresponding 
+**6.** Find **textgen_default_cfg** and **textgen_user_cfg** in your `config.yaml` file. Set these to the corresponding 
 file paths. wherever you decided to install the text-generation-webui.
 
 That's it!
