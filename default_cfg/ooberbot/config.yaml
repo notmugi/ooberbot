@@ -1,0 +1,81 @@
+### OOBERBOT CONFIG
+
+# #
+# Discord token
+# There is no default. place your token in the single quotes.
+# #
+token: ''
+
+# #
+# Bot's contextual history length in messages.
+# Default: 500
+# #
+history_length: 500
+
+# #
+# Should we log chat messages in the terminal for easy viewing?
+# Default: True
+# #
+do_message_logging: True
+
+# #
+# Base URL for the oobabooga textgen webui. /v1/chat/completions will be appended in the code.
+# Default: 'http://127.0.0.1:5000'
+# #
+textgen_base_url: 'http://127.0.0.1:5000'
+
+# #
+# Settings file to use from textgen webui. Default config or User config?
+# Default: 'default'
+# Options: 'default' or 'user'
+# #
+settings_type: 'default' 
+
+# #
+# Directory for the default ooba webui cfg
+# Default: path/to/oobabooga-text-generation-webui/settings-template.yaml
+#  #
+textgen_default_cfg: '/path/to/oobabooga-text-generation-webui/settings-template.yaml'
+# #
+# Directory for the user-defined ooba webui cfg
+# Default: path/to/oobabooga-text-generation-webui/settings.yaml
+# #
+textgen_user_cfg: '/path/to/oobabooga-text-generation-webui/settings.yaml'
+
+# #
+# 
+# bot status types:
+# Default: 2
+# 
+# 0 -N/A
+# 1 -playing
+# 2 -listening to
+# 3 -watching
+# 4 -N/A
+# 5 -competing in
+# #
+bot_status_type: 2
+
+# #
+# text status to display
+# Default: "the voices"
+# #
+bot_status: "the voices"
+
+# #
+# Do we include a video alongside our history reset command?
+# Default: True
+# #
+history_reset_video: True
+
+# #
+# Video file to use as the history reset meme.
+# Default: "lobotomy.mp4"
+# #
+video_file_name: "lobotomy.mp4"
+
+# #
+# Should the bot be silent by default?
+# Default: False
+# #
+silent_default: False
